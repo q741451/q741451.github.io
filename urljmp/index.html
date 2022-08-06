@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>URL Jumper</title>
+		<link rel="stylesheet" href="css/bootstrap-3.3.7.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme-3.3.7.min.css">
+
+	</head>
+	<body>
+		<div class="container">
+			<h1>URL Jumper</h1>
+			<form class="form-inline" method="get">
+				<div class="form-group">
+					<label class="requiredField" for="urlbox">URL: </label>
+					<input type="text" class="form-control" style="width:480px" id="urlbox" name="urlbox" placeholder="https://" autocomplete="off" onkeydown="if(event.keyCode==13){onGo();return false}">
+				</div>
+				<button type="button" class="btn btn-default" onclick=onGo()>Go</button>
+			</form>
+			<br>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function onGo() {
+		var url = document.getElementById('urlbox').value;
+		if (url.indexOf('//') < 0) {
+  	  url = 'http://' + url;
+		}
+		window.open(url, '_blank');
+	}
+</script>
